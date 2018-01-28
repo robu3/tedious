@@ -260,7 +260,11 @@ class Connection extends EventEmitter {
         this.config.options.enableQuotedIdentifier = config.options.enableQuotedIdentifier;
       }
 
-      if (config.options.encrypt != undefined) {
+      if (config.options.encrypt !== undefined) {
+        if (typeof config.options.encrypt !== 'boolean') {
+          throw new TypeError('options.encrypt must be a boolean (true or false).');
+        }
+
         this.config.options.encrypt = config.options.encrypt;
       }
 
