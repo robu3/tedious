@@ -57,8 +57,8 @@ jobs:
       script:
         - npm run lint
         - commitlint-travis
-    - stage: release
-      node_js: 8
-      before_install: skip
-      before_script: skip
-      script: npm run semantic-release
+          #- stage: release
+          #node_js: 8
+          #before_install: skip
+          #before_script: skip
+          #script: npm run semantic-release
