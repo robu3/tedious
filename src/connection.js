@@ -151,10 +151,6 @@ class Connection extends EventEmitter {
     };
 
     if (config.options) {
-      if (config.options.port && config.options.instanceName) {
-        throw new Error('Port and instanceName are mutually exclusive, but ' + config.options.port + ' and ' + config.options.instanceName + ' provided');
-      }
-
       if (config.options.abortTransactionOnError != undefined) {
         if (typeof config.options.abortTransactionOnError !== 'boolean') {
           throw new TypeError('options.abortTransactionOnError must be a boolean (true or false).');
@@ -361,7 +357,6 @@ class Connection extends EventEmitter {
         deprecateNonStringConfigValue('options.instanceName', config.options.instanceName);
 
         this.config.options.instanceName = config.options.instanceName;
-        this.config.options.port = undefined;
       }
       deprecateNullConfigValue('options.instanceName', config.options.instanceName);
 
@@ -404,7 +399,6 @@ class Connection extends EventEmitter {
         deprecateNonNumberConfigValue('options.port', config.options.port);
 
         this.config.options.port = config.options.port;
-        this.config.options.instanceName = undefined;
       }
       deprecateNullConfigValue('options.port', config.options.port);
 
