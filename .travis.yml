@@ -9,8 +9,8 @@ node_js:
 stages:
   - test
   - lint
-  - name: release
-    if: (branch = master) AND (type = push)
+    #- name: release
+    #    if: (branch = master) AND (type = push)
 
 services:
   - docker
